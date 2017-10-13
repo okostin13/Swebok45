@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+
+    <persistence-unit name="NewPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+        <provider>oracle.toplink.essentials.PersistenceProvider</provider>
+        <class>Chapter</class>
+        <properties>
+            <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/swebok"/>
+            <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+         <!--   <property name="toplink.jdbc.user" value="root"/>
+            <property name="toplink.jdbc.password" value="1234"/> -->
+            <property name="toplink.logging.level" value="INFO"/>
+        </properties>
+    </persistence-unit>
+</persistence>
