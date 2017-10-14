@@ -53,29 +53,29 @@
          <h:panelGrid columns="2">
 
 <h:panelGroup id="panelGr" >
-               <h:commandLink  id ="link1" value="Глава 1" action="#{dao.openChapter(1)}" >
+               <h:commandLink  id ="link1" value="Глава 1" action="#{contentController.openChapter(1)}" >
                   <f:ajax execute="panelGr" render="text"/>
                </h:commandLink>
    <hr/>
-               <h:commandLink action="#{dao.openChapter(2)}" >Глава 2
+               <h:commandLink action="#{contentController.openChapter(2)}" >Глава 2
    <f:ajax execute="panelGr" render="text"/>
                </h:commandLink>
    <hr/>
-               <h:commandLink action="#{dao.openChapter(3)}" >Глава 3
+               <h:commandLink action="#{contentController.openChapter(3)}" >Глава 3
    <f:ajax execute="panelGr" render="text"/>
                </h:commandLink>
    <hr/>
-               <h:commandLink action="#{dao.openChapter(4)}" >Глава 4
+               <h:commandLink action="#{contentController.openChapter(4)}" >Глава 4
    <f:ajax execute="panelGr" render="text"/>
                </h:commandLink>
    <hr/>
-               <h:commandLink action="#{dao.openChapter(18)}" >Глава 5
+               <h:commandLink action="#{contentController.openChapter(18)}" >Глава 5
    <f:ajax execute="panelGr" render="text"/>
                </h:commandLink>
 </h:panelGroup>
 
 
-               <h:outputText id="text" value="#{dao.getText()}" escape="false" />
+               <h:outputText id="text" value="#{contentController.getText()}" escape="false" />
 
          </h:panelGrid>
 
