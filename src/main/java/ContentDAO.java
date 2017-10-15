@@ -22,47 +22,41 @@ import java.util.List;
         databaseName = "swebok",
         properties = ("create = true")
 )
-public class ContentController {
+public class ContentDAO {
 
-    public ContentController() {
+    public ContentDAO() {
     }
 
     @Inject
     private EntityManager em;
 
-    public String getText() {
-        return text;
-    }
 
-    public void setText(String text) {
-        this.text = text;
-    }
 
-    private String text=" ";
-
-    public List<Chapter> selectAllChapters(){
+    public List<Chapter> findAllChapters(){
         TypedQuery<Chapter> query =
      em.createQuery("select c from chapter c",Chapter.class);
         return query.getResultList();
 
     }
 
-
-    public void createChapter(){
-        Chapter chapter=new Chapter();
-        chapter.setId(18);
-        chapter.setContent("test");
-       // EntityTransaction tx =em.getTransaction();
-       // tx.begin();
-        em.persist(chapter);
-      //  tx.commit();
+    public void deleteChapter(Chapter chapter)
+    {
+        em.remove(chapter);
     }
 
-    public  String openChapter(int number){
+    public void updateChapter(Chapter chapter)
+    {
+        em.merge(chapter);
+    }
+
+    public void createChapter(Chapter chapter){
+        em.persist(chapter);
+    }
+
+    public  Chapter findChapter(int number){
 
         Chapter chapter = em.find(Chapter.class,number);
-        text= chapter.getContent();
-        return text;
+        return chapter;
     }
 
 

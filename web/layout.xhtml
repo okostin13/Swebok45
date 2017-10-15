@@ -28,20 +28,20 @@
             <br/>
 
 
-            <h:panelGrid  id ="pg" columns="2" value="#{contentController.selectAllChapters()}" var ="chapter">
+            <h:panelGrid id ="pg" columns="2" value="#{contentDAO.findAllChapters()}" var ="chapter">
 
-                <h:dataTable id="chapterlist" value ="#{contentController.selectAllChapters()}" var ="ch" >
+                <h:dataTable id="chapterlist" value ="#{contentDAO.findAllChapters()}" var ="ch" >
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="Заголовок"/>
                             </f:facet>
-                    <h:commandLink  value="#{ch.title}" action="#{contentController.openChapter(ch.id)}" >
+                    <h:commandLink  value="#{ch.title}" action="#{contentDAO.findChapter(ch.id)}" >
                         <f:ajax execute="pg" render="text"/>
                     </h:commandLink>
                         </h:column>
                 </h:dataTable>
 
-                <h:outputText id="text" value="#{contentController.getText()}" escape="false" />
+                <h:outputText id="text" value="123" escape="false" />
 
             </h:panelGrid>
 
