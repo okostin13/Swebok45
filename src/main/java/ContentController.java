@@ -1,10 +1,12 @@
 import javax.annotation.sql.DataSourceDefinition;
-import javax.ejb.Stateful;
-import javax.ejb.Stateless;
+import javax.ejb.*;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 
 @Named
 @Stateless
@@ -15,8 +17,8 @@ import javax.persistence.EntityManagerFactory;
         password = "1234",
         portNumber=3306,
         serverName="localhost",
-        databaseName = "swebok"
-
+        databaseName = "swebok",
+        properties = ("create = true")
 )
 public class ContentController {
 
@@ -37,6 +39,16 @@ public class ContentController {
     private String text=" ";
 
 
+
+    public void createChapter(){
+        Chapter chapter=new Chapter();
+        chapter.setId(18);
+        chapter.setContent("test");
+       // EntityTransaction tx =em.getTransaction();
+       // tx.begin();
+        em.persist(chapter);
+      //  tx.commit();
+    }
 
     public  void openChapter(int number){
 

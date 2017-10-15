@@ -61,15 +61,15 @@
    <f:ajax execute="panelGr" render="text"/>
                </h:commandLink>
    <hr/>
-               <h:commandLink action="#{contentController.openChapter(3)}" >Глава 3
+               <h:commandLink action="#{chapterEJB.CreateChapter()}" >Глава 3
    <f:ajax execute="panelGr" render="text"/>
                </h:commandLink>
    <hr/>
-               <h:commandLink action="#{contentController.openChapter(4)}" >Глава 4
+               <h:commandLink action="#{chapterEJB.openChapter(4)}" >Глава 4
    <f:ajax execute="panelGr" render="text"/>
                </h:commandLink>
    <hr/>
-               <h:commandLink action="#{contentController.openChapter(18)}" >Глава 5
+               <h:commandLink action="#{contentController.createChapter()}" >Глава 5
    <f:ajax execute="panelGr" render="text"/>
                </h:commandLink>
 </h:panelGroup>
