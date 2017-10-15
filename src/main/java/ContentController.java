@@ -40,11 +40,11 @@ public class ContentController {
 
     private String text=" ";
 
-    public String selectAllChapters(){
+    public List<Chapter> selectAllChapters(){
         TypedQuery<Chapter> query =
      em.createQuery("select c from chapter c",Chapter.class);
-        List<Chapter> list= query.getResultList();
-        return list.get(0).getContent();
+        return query.getResultList();
+
     }
 
 

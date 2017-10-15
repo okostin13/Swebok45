@@ -28,15 +28,18 @@
             <br/>
 
 
-            <h:panelGrid columns="2" value="#{contentController.selectAllChapters()}" var ="chapter">
+            <h:panelGrid  id ="pg" columns="2" value="#{contentController.selectAllChapters()}" var ="chapter">
 
-                <h:panelGroup id="panelGr" >
-                    <h:commandLink  value="#{chapter.title}" action="#{contentController.openChapter(chapter.id)}" >
-                        <f:ajax execute="panelGr" render="text"/>
+                <h:dataTable id="chapterlist" value ="#{contentController.selectAllChapters()}" var ="ch" >
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Заголовок"/>
+                            </f:facet>
+                    <h:commandLink  value="#{ch.title}" action="#{contentController.openChapter(ch.id)}" >
+                        <f:ajax execute="pg" render="text"/>
                     </h:commandLink>
-                  <hr/>
-                </h:panelGroup>
-
+                        </h:column>
+                </h:dataTable>
 
                 <h:outputText id="text" value="#{contentController.getText()}" escape="false" />
 
