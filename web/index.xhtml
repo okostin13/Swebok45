@@ -38,11 +38,11 @@
 
 
 
-   <ui:define name="content">
 
-      <h:form id="swebokSummary">
 
-          <h:commandLink action="authorization"> Авторизация </h:commandLink>
+        <ui:define name="auth">
+            <h:commandLink action="authorization"> Авторизация </h:commandLink>
+        </ui:define>
 
          <br/>
          <br/>
@@ -50,7 +50,7 @@
          <br/>
 
 
-         <h:panelGrid columns="2">
+   <!--      <h:panelGrid columns="2">
 
 <h:panelGroup id="panelGr" >
                <h:commandLink  id ="link1" value="Глава 1" action="#{contentController.openChapter(1)}" >
@@ -80,9 +80,9 @@
          </h:panelGrid>
 
       </h:form>
-
+-->
       <hr/>
-   </ui:define>
+
 
 </ui:composition>
 </html>

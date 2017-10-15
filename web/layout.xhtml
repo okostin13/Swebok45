@@ -17,9 +17,37 @@
         </h1>
         <hr/>
 
+        <h:form id="swebokSummary">
+
+            <ui:insert name="auth">Default auth link</ui:insert>
+          <!--  <h:commandLink action="authorization"> Авторизация </h:commandLink>-->
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+
+            <h:panelGrid columns="2" value="#{contentController.selectAllChapters()}" var ="chapter">
+
+                <h:panelGroup id="panelGr" >
+                    <h:commandLink  value="#{chapter.title}" action="#{contentController.openChapter(chapter.id)}" >
+                        <f:ajax execute="panelGr" render="text"/>
+                    </h:commandLink>
+                  <hr/>
+                </h:panelGroup>
+
+
+                <h:outputText id="text" value="#{contentController.getText()}" escape="false" />
+
+            </h:panelGrid>
+
+        </h:form>
+
+
         <h:messages id="errors" infoStyle="color:blue" warnStyle="color:orange" errorStyle="color:red"/>
 
-        <ui:insert name="content">Default content</ui:insert>
+       <!-- <ui:insert name="content">Default content</ui:insert> -->
 
     </h:body>
 </html>

@@ -7,11 +7,13 @@ import javax.inject.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 @Named
 @Stateless
 @DataSourceDefinition(
-        className = "com.mysql.jdbc.jdbc2.optional.MysqlDataSource",
+        className = "com.mysql.jdbc.Driver",
         name = "java:global/Swebok/swebok",
         user = "root",
         password = "1234",
@@ -38,6 +40,12 @@ public class ContentController {
 
     private String text=" ";
 
+    public String selectAllChapters(){
+        TypedQuery<Chapter> query =
+     em.createQuery("select c from chapter c",Chapter.class);
+        List<Chapter> list= query.getResultList();
+        return list.get(0).getContent();
+    }
 
 
     public void createChapter(){
@@ -50,10 +58,11 @@ public class ContentController {
       //  tx.commit();
     }
 
-    public  void openChapter(int number){
+    public  String openChapter(int number){
 
         Chapter chapter = em.find(Chapter.class,number);
         text= chapter.getContent();
+        return text;
     }
 
 

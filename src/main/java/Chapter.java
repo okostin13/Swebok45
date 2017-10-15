@@ -1,8 +1,10 @@
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity(name = "chapter")
+@NamedQuery(name="findAllChapters", query = "select c from chapter c")
 public class Chapter {
 
     public Chapter() {
