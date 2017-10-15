@@ -6,14 +6,16 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
+    <h:form>
     <h:outputLabel>Логин</h:outputLabel>
     <br/>
-    <h:inputText value="123"/>
+    <h:inputText value="#{authorizationController.login}"/>
     <br/>
     <h:outputLabel>Пароль</h:outputLabel>
     <br/>
-    <h:inputText value="#{contentDAO.selectAllChapters()}"/>
+    <h:inputText value="#{authorizationController.password}"/>
     <br/>
-    <h:commandButton value="Log in" action="#{chapterEJB.CreateChapter()}"/>
+    <h:commandButton value="Log in" action="#{authorizationController.signIn()}"/>
+    </h:form>
 </f:view>
 </html>

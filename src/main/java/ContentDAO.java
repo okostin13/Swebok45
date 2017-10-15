@@ -32,6 +32,7 @@ public class ContentDAO {
 
 
 
+
     public List<Chapter> findAllChapters(){
         TypedQuery<Chapter> query =
      em.createQuery("select c from chapter c",Chapter.class);

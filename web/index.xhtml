@@ -41,8 +41,9 @@
 
 
         <ui:define name="auth">
+            <h:form>
             <h:commandLink action="authorization"> Авторизация </h:commandLink>
-            <h:outputLabel value="#{saltGenerator.salt}"/>
+        </h:form>
         </ui:define>
 
 
@@ -53,7 +54,31 @@
          <br/>
          <br/>
 
+<ui:define name="content">
+    <h:form id ="form">
+        <h:panelGroup id ="group">
+    <h:panelGrid id ="panel" columns="2" border="1" value="#{guestController.findAllChapters()}" var ="chapter">
 
+        <h:dataTable id="chapterlist" value ="#{guestController.findAllChapters()}" var ="ch" >
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Заголовок"/>
+                </f:facet>
+                <h:commandLink  value="#{ch.title}" action="#{guestController.findChapter(ch.id)}" >
+                    <f:ajax execute=":group" render=":form :textOutput :titleOutput"/>
+                </h:commandLink>
+            </h:column>
+        </h:dataTable>
+<h:column>
+    <f:facet name="header">
+        <h:outputText id ="titleOutput" value="#{guestController.getChapter().getTitle()}"/>
+    </f:facet>
+        <h:outputText id="textOutput" value="#{guestController.getChapter().getContent()}" escape="false" />
+</h:column>
+    </h:panelGrid>
+        </h:panelGroup>
+    </h:form>
+</ui:define>
    <!--      <h:panelGrid columns="2">
 
 <h:panelGroup id="panelGr" >
