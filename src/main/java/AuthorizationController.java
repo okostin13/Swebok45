@@ -20,10 +20,10 @@ public class AuthorizationController {
     }
 
     @NotNull
-    private String login;
+    private String login="admin";
 
     @NotNull
-    private String password;
+    private String password ="admin";
 
 
     public String signIn() {
@@ -32,7 +32,7 @@ public class AuthorizationController {
 
           return  adminController.getAdminPage();
         }
-        else return "";
+        else return "index.html";
     }
 
     public String getLogin() {

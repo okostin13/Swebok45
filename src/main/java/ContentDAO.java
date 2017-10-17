@@ -45,9 +45,8 @@ public class ContentDAO {
         em.remove(chapter);
     }
 
-    public void updateChapter(Chapter chapter)
-    {
-        em.merge(chapter);
+    public void updateChapter(Chapter chapter) {
+      //  em.merge(chapter);
     }
 
     public void createChapter(Chapter chapter){
