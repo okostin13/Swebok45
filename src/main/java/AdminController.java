@@ -1,10 +1,10 @@
 import javax.annotation.security.RolesAllowed;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.util.List;
 
-@Named
+@ManagedBean
 @SessionScoped
 @RolesAllowed("admin")
 public class AdminController {
@@ -13,24 +13,31 @@ public class AdminController {
 
     }
 
-    private static final String adminPage="administration.xhtml";
+
 
     @Inject
     private ContentDAO contentDAO;
 
-    private Chapter chapter;
+    private Chapter chapter = new Chapter(1,"","");
 
-    public String getAdminPage(){
-        return adminPage;
-    }
+
 
     public List<Chapter> findAllChapters(){
         return contentDAO.findAllChapters();
     }
 
-    public Chapter findChapter(int id){
+    public void findChapter(int id){
+
         chapter=contentDAO.findChapter(id);
+
+    }
+
+    public Chapter getChapter() {
         return chapter;
+    }
+
+    public void setChapter(Chapter chapter) {
+        this.chapter = chapter;
     }
 
 
@@ -49,12 +56,6 @@ public class AdminController {
 
     }
 
-    public Chapter getChapter() {
-        return chapter;
-    }
 
-    public void setChapter(Chapter chapter) {
-        this.chapter = chapter;
-    }
 }
 

@@ -1,12 +1,13 @@
 import javax.annotation.security.RunAs;
 import javax.ejb.SessionContext;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 
 @Named
-@RequestScoped
+@SessionScoped
 @RunAs("admin")
 public class AuthorizationController {
 
@@ -30,7 +31,7 @@ public class AuthorizationController {
 
         if (userDAO.CheckUser(login, password)) {
 
-          return  adminController.getAdminPage();
+          return  "administration.xhtml";
         }
         else return "index.html";
     }

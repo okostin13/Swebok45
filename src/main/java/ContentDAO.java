@@ -55,8 +55,8 @@ public class ContentDAO {
 
     public  Chapter findChapter(int number){
 
-        Chapter chapter = em.find(Chapter.class,number);
-        return chapter;
+        return  em.find(Chapter.class,number);
+
     }
 
 

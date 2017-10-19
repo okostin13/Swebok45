@@ -10,6 +10,15 @@ public class Chapter {
     public Chapter() {
     }
 
+    public Chapter(String content) {
+        this.content = content;
+    }
+
+    public Chapter(int id,String title,String content){
+        this.id = id;
+        this.title=title;
+        this.content=content;
+    }
     @Id
     private int id;
 
@@ -25,9 +34,7 @@ public class Chapter {
         this.title = title;
     }
 
-    public Chapter(String content) {
-        this.content = content;
-    }
+
 
     public int getId() {
         return id;
