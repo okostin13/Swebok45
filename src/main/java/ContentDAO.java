@@ -4,10 +4,7 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 @Named
@@ -40,13 +37,15 @@ public class ContentDAO {
 
     }
 
-    public void deleteChapter(Chapter chapter)
+    public void deleteChapter(int id)
     {
-        em.remove(chapter);
+        em.remove(findChapter(id));
     }
 
     public void updateChapter(Chapter chapter) {
-      //  em.merge(chapter);
+      // Query query = em.createQuery("update Chapter ch  set ch.title = :title, ch.content = :content where ch.id = :id");
+      // query.setParameter("title",chapter.getTitle()).setParameter("content",chapter.getContent()).setParameter("id",chapter.getId()).executeUpdate();
+       //em.merge(chapter);
     }
 
     public void createChapter(Chapter chapter){

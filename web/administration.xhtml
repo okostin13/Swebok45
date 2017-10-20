@@ -32,16 +32,21 @@
 
         <h:panelGrid id="pGrid" columns="2"  columnClasses="topAligned" >
 
+            <f:facet name="header">
+                <h:column>
+                    <h:outputText value="Заголовок"/>
+                </h:column>
+            </f:facet>
+
                 <h:dataTable id="chapterlist"  value ="#{adminController.findAllChapters()}" var ="ch" border="1" >
                     <h:column>
-                        <f:facet name="header">
-                            <h:column>
-                            <h:outputText value="Заголовок"/>
-                            </h:column>
-                        </f:facet>
+
                         <h:commandLink  value="#{ch.title}" action="#{adminController.findChapter(ch.id)}" >
                             <f:ajax execute=":form" render=":form :panel"/>
                         </h:commandLink>
+                    </h:column>
+                    <h:column >
+                        <h:commandLink value="[x]" action="#{adminController.deleteChapter(ch.id)}" />
                     </h:column>
                 </h:dataTable>
 
@@ -52,7 +57,9 @@
             <f:facet name = "header">
                 <h:inputText value = "#{adminController.chapter.title}"/>
             </f:facet>
-            <h:inputTextarea value = "#{adminController.chapter.content}"  escape="false"/>
+            <h:inputTextarea value = "#{adminController.chapter.content}"  escape="true"/>
+            <h:commandButton action="index" value="Создать новую главу"/>;
+            <h:commandButton action="index" value="Сохранить изменения"/>;
 
         </h:panelGrid>
 

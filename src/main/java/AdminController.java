@@ -41,16 +41,15 @@ public class AdminController {
     }
 
 
-    public void deleteChapter(Chapter chapter) {
-        contentDAO.deleteChapter(chapter);
+    public void deleteChapter(int id) {
+        contentDAO.deleteChapter(id);
     }
 
-    public void updateChapter(Chapter chapter)
-    {
-        contentDAO.updateChapter(chapter);
+    public void updateChapter(){
+       // contentDAO.updateChapter(chapter);
     }
 
-    public void createChapter(Chapter chapter) {
+    public void createChapter() {
 
       contentDAO.createChapter(chapter);
 
