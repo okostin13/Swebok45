@@ -1,12 +1,13 @@
 import javax.annotation.security.RunAs;
 import javax.ejb.SessionContext;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 
-@Named
+@ManagedBean
 @SessionScoped
 @RunAs("admin")
 public class AuthorizationController {
@@ -21,10 +22,10 @@ public class AuthorizationController {
     }
 
     @NotNull
-    private String login="admin";
+    private String login ="";
 
     @NotNull
-    private String password ="admin";
+    private String password ="";
 
 
     public String signIn() {
@@ -35,6 +36,7 @@ public class AuthorizationController {
         }
         else return "index.html";
     }
+
 
     public String getLogin() {
         return login;

@@ -22,9 +22,9 @@ public class UserDAO {
 
     public boolean CheckUser(String login,String password){
      UserEntity user = em.find(UserEntity.class,login);
-   //  String encodedPass = encodeUtil.base64encode(password+user.getSalt());
-        String encodedPass = password;
-     if (encodedPass.equals(user.getPassword())){
+    String encodedPass = encodeUtil.base64encode(password+user.getSalt());
+
+     if (user!=null&&encodedPass.equals(user.getPassword())){
          return true;
      }
      else{

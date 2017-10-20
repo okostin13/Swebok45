@@ -11,7 +11,7 @@ public class SaltGenerator {
     SecureRandom secureRandom = new SecureRandom();
      EncodeUtil encodeUtil = new EncodeUtil();
      public  String getSalt(){
-         byte bytes[] = new byte[20];
+         byte bytes[] = new byte[5];
          secureRandom.nextBytes(bytes);
          String str ="";
          for (byte c : bytes){

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="layout.xhtml">
+
+    <ui:define name="title">SWEBOK</ui:define>
+
+
+
+
+
+    <ui:define name="auth">
+        <h:form>
+            <h:commandLink action="index.xhtml"> Выход </h:commandLink>
+        </h:form>
+    </ui:define>
+
+
+
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <ui:define name="content">
+        <h:form id ="form">
+
+            <h:panelGrid id="pGrid" columns="2"  columnClasses="topAligned" >
+
+
+
+                <h:dataTable id="chapterlist"  value ="#{adminController.findAllChapters()}" var ="ch" border="1" >
+                    <h:column>
+                        <f:facet name="header">
+                            <h:column>
+                                <h:outputText value="Заголовок"/>
+                            </h:column>
+                        </f:facet>
+                        <h:commandLink  value="#{ch.title}" action="#{adminController.findChapter(ch.id)}" >
+                            <f:ajax execute=":form" render=":form :panel"/>
+                        </h:commandLink>
+                    </h:column>
+                    <h:column >
+                        <h:commandLink value="[x]" action="#{adminController.deleteChapter(ch.id)}" />
+                    </h:column>
+                </h:dataTable>
+
+
+                <h:panelGrid columnClasses="topAligned" id = "panel" columns = "1" border = "1"
+                             cellpadding = "10" cellspacing = "1">
+
+                    <f:facet name = "header">
+                        <h:inputText value = "#{adminController.chapter.title}"/>
+                    </f:facet>
+                    <h:inputTextarea value = "#{adminController.chapter.content}"  escape="true"/>
+                    <h:commandButton value="Сохранить изменения" action="#{adminController.updateChapter()}" />
+                    <h:commandButton value="Добваить как новую главу" action="#{adminController.createChapter()}"/>
+
+
+
+                </h:panelGrid>
+
+            </h:panelGrid>
+
+            <!--
+
+                                <h:panelGrid id="chapterRefactoring"   border="1">
+                                    <h:column>
+                                <f:facet name="header">
+                                    <h:column>
+                                <h:outputText value="header" />
+                                    </h:column>
+                            </f:facet>
+                                <h:outputLabel value="#{guestController.chapter.content}" />
+                                <br/>
+                                <h:outputLabel value="paaasdasaa" />
+                                        <f:facet name="footer">
+                                        <h:outputText value="foot"/>
+                                  </f:facet>
+                                    </h:column>
+                                </h:panelGrid>
+
+                              !!!!!!!!!!!!!!!!!!!!!!!!!  <h:dataTable id = "chapterRefactoring">
+                                    <h:column>
+                                <f:facet name="headerSingle">
+                                    <h:inputText id="titleInput" value="#{guestController.chapter.title}"/>
+                                </f:facet>
+                                <h:inputText id="textInput" value="#{guestController.chapter.content}" escape="false" />
+                                    </h:column>
+                            </h:dataTable> -->
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
+
