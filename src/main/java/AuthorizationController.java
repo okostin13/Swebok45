@@ -31,7 +31,7 @@ public class AuthorizationController {
 
         if (userDAO.CheckUser(login, password)) {
 
-          return  "administration.xhtml";
+          return  "adminPage.xhtml";
         }
         else return "index.html";
     }

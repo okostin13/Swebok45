@@ -18,7 +18,7 @@ public class AdminController {
     @Inject
     private ContentDAO contentDAO;
 
-    private Chapter chapter = new Chapter(1,"","");
+    private Chapter chapter = new Chapter();
 
 
 
@@ -42,16 +42,21 @@ public class AdminController {
 
 
     public void deleteChapter(int id) {
+
         contentDAO.deleteChapter(id);
+        chapter=new Chapter();
     }
 
-    public void updateChapter(){
+   // public void updateChapter(){
        // contentDAO.updateChapter(chapter);
-    }
+   // }
 
     public void createChapter() {
 
-      contentDAO.createChapter(chapter);
+        Chapter newChapter = new Chapter();
+        newChapter.setTitle(chapter.getTitle());
+        newChapter.setContent(chapter.getContent());
+      contentDAO.createChapter(newChapter);
 
     }
 

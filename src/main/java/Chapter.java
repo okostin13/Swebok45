@@ -1,7 +1,4 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 
 @Entity(name = "chapter")
 @NamedQuery(name="findAllChapters", query = "select c from chapter c")
@@ -20,6 +17,7 @@ public class Chapter {
         this.content=content;
     }
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String content;
