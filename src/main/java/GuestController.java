@@ -1,3 +1,5 @@
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
@@ -27,6 +29,12 @@ public class GuestController {
        chapter=contentDAO.findChapter(id);
 
     }
+public String getTags(){
+        if (chapter!=null)
+        return  "Теги: "+ chapter.getTags();
+        else
+            return "";
+}
 
     public Chapter getChapter() {
         return chapter;

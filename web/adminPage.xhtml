@@ -39,7 +39,7 @@
                     <h:column>
                         <f:facet name="header">
                             <h:column>
-                                <h:outputText value="Заголовок"/>
+                                <h:outputText value="Глава"/>
                             </h:column>
                         </f:facet>
                         <h:commandLink  value="#{ch.title}" action="#{adminController.findChapter(ch.id)}" >
@@ -52,13 +52,15 @@
                 </h:dataTable>
 
 
-                <h:panelGrid columnClasses="topAligned" id = "panel" columns = "1" border = "1"
+                <h:panelGrid columnClasses="topAligned" id = "panel" columns = "1" border = "0"
                              cellpadding = "10" cellspacing = "1">
 
                     <f:facet name = "header">
                         <h:inputText value = "#{adminController.chapter.title}"/>
                     </f:facet>
                     <h:inputTextarea value = "#{adminController.chapter.content}"  escape="true"/>
+                    <h:outputLabel value="Теги:"/>
+                    <h:inputText value="#{adminController.chapter.tags}"/>
                     <h:commandButton value="Сохранить изменения" action="#{adminController.updateChapter()}" />
                     <h:commandButton value="Добваить как новую главу" action="#{adminController.createChapter()}"/>
 

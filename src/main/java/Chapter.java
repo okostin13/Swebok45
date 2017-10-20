@@ -24,6 +24,8 @@ public class Chapter {
 
     private String title;
 
+    private String tags;
+
     public String getTitle() {
         return title;
     }
@@ -48,5 +50,13 @@ public class Chapter {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 }

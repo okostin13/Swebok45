@@ -1,7 +1,10 @@
 import javax.annotation.security.RolesAllowed;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
+
 import java.util.List;
 
 @ManagedBean
@@ -12,6 +15,7 @@ public class AdminController {
     public AdminController() {
 
     }
+
 
 
 
@@ -56,6 +60,7 @@ public class AdminController {
         Chapter newChapter = new Chapter();
         newChapter.setTitle(chapter.getTitle());
         newChapter.setContent(chapter.getContent());
+        newChapter.setTags(chapter.getTags());
       contentDAO.createChapter(newChapter);
 
     }

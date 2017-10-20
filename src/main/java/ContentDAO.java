@@ -43,8 +43,8 @@ public class ContentDAO {
     }
 
     public void updateChapter(Chapter chapter) {
-       Query query = em.createQuery("update chapter ch  set ch.title = :title, ch.content = :content where ch.id = :id");
-       query.setParameter("title",chapter.getTitle()).setParameter("content",chapter.getContent()).setParameter("id",chapter.getId()).executeUpdate();
+       Query query = em.createQuery("update chapter ch  set ch.title = :title, ch.content = :content, ch.tags=:tags where ch.id = :id");
+       query.setParameter("title",chapter.getTitle()).setParameter("content",chapter.getContent()).setParameter("id",chapter.getId()).setParameter("tags",chapter.getTags()).executeUpdate();
        em.merge(chapter);
     }
 
