@@ -42,11 +42,11 @@ public class ContentDAO {
         em.remove(findChapter(id));
     }
 
-   // public void updateChapter(Chapter chapter) {
-      // Query query = em.createQuery("update Chapter ch  set ch.title = :title, ch.content = :content where ch.id = :id");
-      // query.setParameter("title",chapter.getTitle()).setParameter("content",chapter.getContent()).setParameter("id",chapter.getId()).executeUpdate();
-       //em.merge(chapter);
-   // }
+    public void updateChapter(Chapter chapter) {
+       Query query = em.createQuery("update chapter ch  set ch.title = :title, ch.content = :content where ch.id = :id");
+       query.setParameter("title",chapter.getTitle()).setParameter("content",chapter.getContent()).setParameter("id",chapter.getId()).executeUpdate();
+       em.merge(chapter);
+    }
 
     public void createChapter(Chapter chapter){
         em.persist(chapter);

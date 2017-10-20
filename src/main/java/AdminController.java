@@ -47,9 +47,9 @@ public class AdminController {
         chapter=new Chapter();
     }
 
-   // public void updateChapter(){
-       // contentDAO.updateChapter(chapter);
-   // }
+    public void updateChapter(){
+        contentDAO.updateChapter(chapter);
+    }
 
     public void createChapter() {
 
