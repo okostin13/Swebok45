@@ -6,7 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<ui:composition template="layout.xhtml">
+<ui:composition template="../layout.xhtml">
 
     <ui:define name="title">SWEBOK</ui:define>
 
@@ -16,7 +16,7 @@
 
     <ui:define name="auth">
         <h:form>
-            <h:commandLink action="index.xhtml"> Выход </h:commandLink>
+            <h:commandLink action="#{adminController.logOut()}"> Выход </h:commandLink>
         </h:form>
     </ui:define>
 

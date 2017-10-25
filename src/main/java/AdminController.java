@@ -25,6 +25,12 @@ public class AdminController {
     private Chapter chapter = new Chapter();
 
 
+    public String logOut(){
+        FacesContext ctx = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) ctx.getExternalContext().getSession(false);
+        session.invalidate();
+        return "/index.xhtml?faces-redirect=true";
+    }
 
     public List<Chapter> findAllChapters(){
         return contentDAO.findAllChapters();

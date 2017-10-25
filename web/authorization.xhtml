@@ -6,7 +6,9 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:body>
-    <h:form>
+    <h:messages warnStyle="color:red"/>
+
+    <h:form id ="auth">
     <h:outputLabel>Логин</h:outputLabel>
     <br/>
     <h:inputText  value="#{authorizationController.login}"/>
