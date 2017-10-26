@@ -6,32 +6,6 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<!--
-<h:head>
-   <title>JSF tutorial</title>
-</h:head>
-
-<h:body>
-   <h2>Ajax Example</h2>
-
-  <h:form>
-      <h:inputText id = "inputName" value = "#{userData.name}"></h:inputText>
-      <h:commandButton value = "Show Message">
-         <f:ajax execute = "inputName" render = "outputMessage" />
-      </h:commandButton>
-      <h2><h:outputText id = "outputMessage"
-                        value = "#{userData.welcomeMessage != null ?
-            userData.welcomeMessage : ''}"
-      /></h2>
-   </h:form>
-</h:body>
--->
-
-<!--   <f:view>
-    :outputLabel value="Hello, world"/>
-    <h:outputLabel value="#{provider.connect()}"/>
-   </f:view> -->
-
 <ui:composition template="layout.xhtml">
 
    <ui:define name="title">SWEBOK</ui:define>
@@ -42,7 +16,7 @@
 
         <ui:define name="auth">
             <h:form>
-            <h:commandLink action="authorization?faces-redirect=true"> Авторизация </h:commandLink>
+                <h:commandButton styleClass="btn btn-success" action="authorization?faces-redirect=true" value="Авторизация">  </h:commandButton>
         </h:form>
         </ui:define>
 
@@ -56,24 +30,24 @@
 
 <ui:define name="content">
     <h:form id ="form">
-        <h:panelGrid id="pGrid" columns="2"  columnClasses="topAligned" >
+        <h:panelGrid id="pGrid" columns="2"  columnClasses="vertical" >
 
-            <h:dataTable id="chapterlist"  value ="#{guestController.findAllChapters()}" var ="ch" border="1" >
-                <h:column>
+            <h:dataTable id="chapterlist"   value ="#{guestController.findAllChapters()}" var ="ch"  columnClasses="btn-group-vertical" >
+                <h:column >
                     <f:facet name="header">
                         <h:column>
                             <h:outputText value="Глава"/>
                         </h:column>
                     </f:facet>
-                    <h:commandLink  value="#{ch.title}" action="#{guestController.findChapter(ch.id)}" >
+
+                    <h:commandButton styleClass="btn btn-success" value="#{ch.title}" action="#{guestController.findChapter(ch.id)}" >
                         <f:ajax execute=":form" render=":form :panel"/>
-                    </h:commandLink>
+                    </h:commandButton>
                 </h:column>
             </h:dataTable>
 
 
-            <h:panelGrid columnClasses="topAligned" id = "panel" columns = "1" border = "0"
-                         cellpadding = "10" cellspacing = "1">
+            <h:panelGrid columnClasses="vertical"  styleClass="margin" id = "panel" columns = "1">
 
                 <f:facet name = "header">
                     <h:outputText value = "#{guestController.chapter.title}"/>
@@ -88,38 +62,6 @@
 
     </h:form>
 </ui:define>
-   <!--      <h:panelGrid columns="2">
-
-<h:panelGroup id="panelGr" >
-               <h:commandLink  id ="link1" value="Глава 1" action="#{contentController.openChapter(1)}" >
-                  <f:ajax execute="panelGr" render="text"/>
-               </h:commandLink>
-   <hr/>
-               <h:commandLink action="#{contentController.openChapter(2)}" >Глава 2
-   <f:ajax execute="panelGr" render="text"/>
-               </h:commandLink>
-   <hr/>
-               <h:commandLink action="#{chapterEJB.CreateChapter()}" >Глава 3
-   <f:ajax execute="panelGr" render="text"/>
-               </h:commandLink>
-   <hr/>
-               <h:commandLink action="#{chapterEJB.openChapter(4)}" >Глава 4
-   <f:ajax execute="panelGr" render="text"/>
-               </h:commandLink>
-   <hr/>
-               <h:commandLink action="#{contentController.createChapter()}" >Глава 5
-   <f:ajax execute="panelGr" render="text"/>
-               </h:commandLink>
-</h:panelGroup>
-
-
-               <h:outputText id="text" value="#{contentController.getText()}" escape="false" />
-
-         </h:panelGrid>
-
-      </h:form>
--->
-      <hr/>
 
 
 </ui:composition>

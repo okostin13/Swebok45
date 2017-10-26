@@ -5,19 +5,36 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+ <h:outputStylesheet library="css" name="ownStyles.css"/>
+</h:head>
+
 <h:body>
-    <h:messages warnStyle="color:red"/>
+
+    <div class="container bg-1">
+    <h:messages styleClass="alert alert-danger" warnStyle="color:red"/>
 
     <h:form id ="auth">
+
     <h:outputLabel>Логин</h:outputLabel>
     <br/>
-    <h:inputText  value="#{authorizationController.login}"/>
+        <div class="input-group">
+            <span class="input-group-addon"> <i class="glyphicon glyphicon-user"></i></span>
+    <h:inputText class="form-control col-sm-2" placeholder="Enter email"  value="#{authorizationController.login}"/>
+        </div>
     <br/>
     <h:outputLabel>Пароль</h:outputLabel>
     <br/>
-    <h:inputSecret value="#{authorizationController.password}"/>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    <h:inputSecret class="form-control col-sm-2"  value="#{authorizationController.password}"/>
+        </div>
     <br/>
-        <h:commandButton value="Войти" action="#{authorizationController.signIn()}"/>
+
+        <h:commandButton styleClass="btn btn-info" value="Войти" action="#{authorizationController.signIn()}"/>
+
     </h:form>
+    </div>
 </h:body>
 </html>

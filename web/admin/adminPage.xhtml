@@ -16,7 +16,7 @@
 
     <ui:define name="auth">
         <h:form>
-            <h:commandLink action="#{adminController.logOut()}"> Выход </h:commandLink>
+            <h:commandButton styleClass="btn btn-success" action="#{adminController.logOut()}" value="Выход">  </h:commandButton>
         </h:form>
     </ui:define>
 
@@ -31,29 +31,28 @@
     <ui:define name="content">
         <h:form id ="form">
 
-            <h:panelGrid id="pGrid" columns="2"  columnClasses="topAligned" >
+            <h:panelGrid id="pGrid" columns="2"  columnClasses="vertical" >
 
 
 
-                <h:dataTable id="chapterlist"  value ="#{adminController.findAllChapters()}" var ="ch" border="1" >
+                <h:dataTable id="chapterlist"  value ="#{adminController.findAllChapters()}" var ="ch" columnClasses="btn-group-vertical" >
                     <h:column>
                         <f:facet name="header">
                             <h:column>
                                 <h:outputText value="Глава"/>
                             </h:column>
                         </f:facet>
-                        <h:commandLink  value="#{ch.title}" action="#{adminController.findChapter(ch.id)}" >
+                        <h:commandButton styleClass="btn btn-success btn-md"  value="#{ch.title}" action="#{adminController.findChapter(ch.id)}" >
                             <f:ajax execute=":form" render=":form :panel"/>
-                        </h:commandLink>
+                        </h:commandButton>
                     </h:column>
                     <h:column >
-                        <h:commandLink value="[x]" action="#{adminController.deleteChapter(ch.id)}" />
+                        <h:commandButton styleClass="btn btn-danger" value="X" action="#{adminController.deleteChapter(ch.id)}" />
                     </h:column>
                 </h:dataTable>
 
 
-                <h:panelGrid columnClasses="topAligned" id = "panel" columns = "1" border = "0"
-                             cellpadding = "10" cellspacing = "1">
+                <h:panelGrid columnClasses="vertical" id = "panel" columns = "1">
 
                     <f:facet name = "header">
                         <h:inputText value = "#{adminController.chapter.title}"/>

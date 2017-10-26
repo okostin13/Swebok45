@@ -1,0 +1,10 @@
+.bg-1 {
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+}
+.vertical{
+    vertical-align: top;
+}
+.margin{
+    margin-left: 20pt;
+}

@@ -6,13 +6,15 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+        <h:outputStylesheet library="css" name="ownStyles.css"/>
         <title>
 
             <ui:insert name="title">Default title</ui:insert>
         </title>
     </h:head>
     <h:body>
-
+<div class="container bg-1">
         <h1>
             <ui:insert name="title">Default title</ui:insert>
         </h1>
@@ -38,6 +40,6 @@
         <h:messages id="errors" infoStyle="color:blue" warnStyle="color:orange" errorStyle="color:red"/>
 
        <!-- <ui:insert name="content">Default content</ui:insert> -->
-
+</div>
     </h:body>
 </html>

@@ -46,6 +46,7 @@
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.2 - CDI: Contexts and Dependency Injection" level="application_server_libraries" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.2 - Connector Architecture (JSR 322)" level="application_server_libraries" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.2 - CDI: Contexts and Dependency Injection" level="application_server_libraries" />
+    <orderEntry type="library" name="Maven: org.omnifaces:omnifaces:2.6.5" level="project" />
     <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.2-b01" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jsp-api:2.0" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.4" level="project" />
