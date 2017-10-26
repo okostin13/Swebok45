@@ -2,9 +2,22 @@
     background-color: #1abc9c; /* Green */
     color: #ffffff;
 }
+.bg-2{
+    background-color: #fefefe;
+    color: #0b2e13;
+}
 .vertical{
     vertical-align: top;
 }
 .margin{
-    margin-left: 20pt;
+    padding-left: 200pt;
+    margin-left: 200pt;
+}
+.forButtons {
+    margin:0 auto;
+}
+pre {
+    background-color: #ffffff !important;
+    border: 1px solid #898989;
+    padding: 5px;
 }

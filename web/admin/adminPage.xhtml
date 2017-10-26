@@ -52,16 +52,24 @@
                 </h:dataTable>
 
 
-                <h:panelGrid columnClasses="vertical" id = "panel" columns = "1">
+                <h:panelGrid  style="margin-left:40px;" columnClasses="vertical" id = "panel" columns = "1"  >
+
+
 
                     <f:facet name = "header">
-                        <h:inputText value = "#{adminController.chapter.title}"/>
+
+                        <h:inputText value = "#{adminController.chapter.title}"  />
+                        <h:commandButton styleClass="btn btn-success" value="Сохранить изменения" action="#{adminController.updateChapter()}" style="margin-left:10px;" />
+                        <h:commandButton styleClass="btn btn-success" value="Очистить поле" action="#{adminController.clearField()}" style="margin-left:10px;"/>
+                        <h:commandButton styleClass="btn btn-success" value="Добавить как новую главу" action="#{adminController.createChapter()}" style="margin-left:10px;" />
+
+
                     </f:facet>
-                    <h:inputTextarea value = "#{adminController.chapter.content}"  escape="true"/>
                     <h:outputLabel value="Теги:"/>
-                    <h:inputText value="#{adminController.chapter.tags}"/>
-                    <h:commandButton value="Сохранить изменения" action="#{adminController.updateChapter()}" />
-                    <h:commandButton value="Добваить как новую главу" action="#{adminController.createChapter()}"/>
+                    <h:inputTextarea  value="#{adminController.chapter.tags}" style="width: 80%" rows="2"/>
+                    <h:inputTextarea value = "#{adminController.chapter.content}" style="width: 80%" rows="30"  escape="true"/>
+
+
 
 
 
@@ -69,32 +77,6 @@
 
             </h:panelGrid>
 
-            <!--
-
-                                <h:panelGrid id="chapterRefactoring"   border="1">
-                                    <h:column>
-                                <f:facet name="header">
-                                    <h:column>
-                                <h:outputText value="header" />
-                                    </h:column>
-                            </f:facet>
-                                <h:outputLabel value="#{guestController.chapter.content}" />
-                                <br/>
-                                <h:outputLabel value="paaasdasaa" />
-                                        <f:facet name="footer">
-                                        <h:outputText value="foot"/>
-                                  </f:facet>
-                                    </h:column>
-                                </h:panelGrid>
-
-                              !!!!!!!!!!!!!!!!!!!!!!!!!  <h:dataTable id = "chapterRefactoring">
-                                    <h:column>
-                                <f:facet name="headerSingle">
-                                    <h:inputText id="titleInput" value="#{guestController.chapter.title}"/>
-                                </f:facet>
-                                <h:inputText id="textInput" value="#{guestController.chapter.content}" escape="false" />
-                                    </h:column>
-                            </h:dataTable> -->
         </h:form>
     </ui:define>
 </ui:composition>

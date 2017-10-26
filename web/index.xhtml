@@ -30,6 +30,9 @@
 
 <ui:define name="content">
     <h:form id ="form">
+        <blockquote>
+        <h:outputLabel>asdad</h:outputLabel>
+        </blockquote>
         <h:panelGrid id="pGrid" columns="2"  columnClasses="vertical" >
 
             <h:dataTable id="chapterlist"   value ="#{guestController.findAllChapters()}" var ="ch"  columnClasses="btn-group-vertical" >
@@ -47,7 +50,7 @@
             </h:dataTable>
 
 
-            <h:panelGrid columnClasses="vertical"  styleClass="margin" id = "panel" columns = "1">
+            <h:panelGrid  style="margin-left:40px;" columnClasses="vertical"  styleClass="margin" id = "panel" columns = "1">
 
                 <f:facet name = "header">
                     <h:outputText value = "#{guestController.chapter.title}"/>

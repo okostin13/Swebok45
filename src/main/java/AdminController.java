@@ -51,6 +51,11 @@ public class AdminController {
     }
 
 
+    public void clearField(){
+        chapter.setTitle("");
+        chapter.setContent("");
+        chapter.setTags("");
+    }
     public void deleteChapter(int id) {
 
         contentDAO.deleteChapter(id);
