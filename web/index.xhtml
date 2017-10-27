@@ -49,13 +49,15 @@
 
             <h:panelGrid  style="margin-left:40px;" columnClasses="vertical"  styleClass="margin" id = "panel" columns = "1">
 
-                <f:facet name = "header">
-                    <h:outputText value = "#{guestController.chapter.title}"/>
+                <f:facet  name = "header">
+                    <div style="text-align: center">
+                    <h:outputText style="font-size: 250%;" value = "#{guestController.chapter.title}"/>
+                    </div>
                 </f:facet>
                 <h:outputText value = "#{guestController.chapter.content}"  escape="false"/>
 <ui:repeat value="#{guestController.getTags()}" var="tag">
 
-                                  <h:outputText styleClass="btn-dark" style="margin-right: 20px;" value=" #{tag} "/>
+                                  <h:outputText styleClass="btn-dark" style="margin-right: 20px; font-size: 140%" value=" #{tag} "/>
 
 
             </ui:repeat>
