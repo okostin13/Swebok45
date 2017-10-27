@@ -30,9 +30,6 @@
 
 <ui:define name="content">
     <h:form id ="form">
-        <blockquote>
-        <h:outputLabel>asdad</h:outputLabel>
-        </blockquote>
         <h:panelGrid id="pGrid" columns="2"  columnClasses="vertical" >
 
             <h:dataTable id="chapterlist"   value ="#{guestController.findAllChapters()}" var ="ch"  columnClasses="btn-group-vertical" >
@@ -43,7 +40,7 @@
                         </h:column>
                     </f:facet>
 
-                    <h:commandButton styleClass="btn btn-success" value="#{ch.title}" action="#{guestController.findChapter(ch.id)}" >
+                    <h:commandButton styleClass="btn btn-success " style="width: 200px;" value="#{ch.title}" action="#{guestController.findChapter(ch.id)}" >
                         <f:ajax execute=":form" render=":form :panel"/>
                     </h:commandButton>
                 </h:column>
@@ -56,8 +53,12 @@
                     <h:outputText value = "#{guestController.chapter.title}"/>
                 </f:facet>
                 <h:outputText value = "#{guestController.chapter.content}"  escape="false"/>
+<ui:repeat value="#{guestController.getTags()}" var="tag">
 
-                <h:outputText value="#{guestController.getTags()}"/>
+                                  <h:outputText styleClass="btn-dark" style="margin-right: 20px;" value=" #{tag} "/>
+
+
+            </ui:repeat>
 
             </h:panelGrid>
 

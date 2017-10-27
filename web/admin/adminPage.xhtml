@@ -42,7 +42,7 @@
                                 <h:outputText value="Глава"/>
                             </h:column>
                         </f:facet>
-                        <h:commandButton styleClass="btn btn-success btn-md"  value="#{ch.title}" action="#{adminController.findChapter(ch.id)}" >
+                        <h:commandButton styleClass="btn btn-success btn-md" style="width: 200px;"  value="#{ch.title}" action="#{adminController.findChapter(ch.id)}" >
                             <f:ajax execute=":form" render=":form :panel"/>
                         </h:commandButton>
                     </h:column>
@@ -66,8 +66,8 @@
 
                     </f:facet>
                     <h:outputLabel value="Теги:"/>
-                    <h:inputTextarea  value="#{adminController.chapter.tags}" style="width: 80%" rows="2"/>
-                    <h:inputTextarea value = "#{adminController.chapter.content}" style="width: 80%" rows="30"  escape="true"/>
+                    <h:inputTextarea  value="#{adminController.chapter.tags}" style="width: 100%" rows="2"/>
+                    <h:inputTextarea value = "#{adminController.chapter.content}" style="width: 100%" rows="30"  escape="true"/>
 
 
 

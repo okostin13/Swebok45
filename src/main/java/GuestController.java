@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.ArrayList;
 import java.util.List;
 
 @ManagedBean
@@ -29,11 +30,26 @@ public class GuestController {
        chapter=contentDAO.findChapter(id);
 
     }
-public String getTags(){
-        if (chapter!=null)
-        return  "Теги: "+ chapter.getTags();
-        else
-            return "";
+    public List<String> getTags(){
+        String tagsString="";
+        List <String>  tags = new ArrayList<String>();
+        if (chapter!=null&& chapter.getTags()!=null) {
+            tagsString = chapter.getTags();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < tagsString.length(); i++) {
+                if (tagsString.charAt(i) != ' ') {
+                    sb.append(tagsString.charAt(i));
+                } else {
+                    if (sb.charAt(0) != ' ')
+                        tags.add(sb.toString());
+                    sb = new StringBuilder();
+                }
+            }
+
+            if (sb.charAt(0) != ' ')
+                tags.add(sb.toString());
+        }
+     return tags;
 }
 
     public Chapter getChapter() {

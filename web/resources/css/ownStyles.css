@@ -21,3 +21,6 @@ pre {
     border: 1px solid #898989;
     padding: 5px;
 }
+.wide {
+    overflow: hidden;
+}
