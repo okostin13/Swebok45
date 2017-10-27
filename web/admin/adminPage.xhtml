@@ -59,9 +59,15 @@
                     <f:facet name = "header">
 
                         <h:inputText value = "#{adminController.chapter.title}"  />
-                        <h:commandButton styleClass="btn btn-success" value="Сохранить изменения" action="#{adminController.updateChapter()}" style="margin-left:10px;" />
-                        <h:commandButton styleClass="btn btn-success" value="Очистить поле" action="#{adminController.clearField()}" style="margin-left:10px;"/>
-                        <h:commandButton styleClass="btn btn-success" value="Добавить как новую главу" action="#{adminController.createChapter()}" style="margin-left:10px;" />
+                        <h:commandButton styleClass="btn btn-success" value="Сохранить изменения" action="#{adminController.updateChapter()}" style="margin-left:10px;">
+                            <f:ajax execute=":form" render=":form"/>
+                        </h:commandButton>
+                        <h:commandButton styleClass="btn btn-success" value="Очистить поле" action="#{adminController.clearField()}" style="margin-left:10px;">
+                            <f:ajax execute=":form" render=":form"/>
+                        </h:commandButton>
+                        <h:commandButton styleClass="btn btn-success" value="Добавить как новую главу" action="#{adminController.createChapter()}" style="margin-left:10px;" >
+                            <f:ajax execute=":form" render=":form"/>
+                        </h:commandButton>
 
 
                     </f:facet>
