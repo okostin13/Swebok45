@@ -30,11 +30,18 @@ public class ContentDAO {
 
 
 
-    public List<Chapter> findAllChapters(){
+    public List<Chapter> findChapters(String section){
         TypedQuery<Chapter> query =
-     em.createQuery("select c from chapter c",Chapter.class);
+     em.createQuery("select c from chapter c where c.section= :section order by c.title",Chapter.class);
+        query.setParameter("section",section);
         return query.getResultList();
 
+    }
+
+    public List<String> findSections(){
+        TypedQuery<String> query =
+                em.createQuery("select distinct c.section from chapter c order by c.section",String.class);
+        return query.getResultList();
     }
 
     public void deleteChapter(int id)

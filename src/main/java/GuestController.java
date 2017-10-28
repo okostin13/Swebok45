@@ -21,8 +21,12 @@ public class GuestController {
 
 
 
-    public List<Chapter> findAllChapters(){
-        return contentDAO.findAllChapters();
+    public List<Chapter> findChapters(String section){
+        return contentDAO.findChapters(section);
+    }
+
+    public List<String> findSections(){
+        return contentDAO.findSections();
     }
 
     public void findChapter(int id){

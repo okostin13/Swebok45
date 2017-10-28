@@ -32,8 +32,12 @@ public class AdminController {
         return "/index.xhtml?faces-redirect=true";
     }
 
-    public List<Chapter> findAllChapters(){
-        return contentDAO.findAllChapters();
+    public List<String> findSections(){
+        return contentDAO.findSections();
+    }
+
+    public List<Chapter> findChapters(String section){
+        return contentDAO.findChapters(section);
     }
 
     public void findChapter(int id){
@@ -55,6 +59,7 @@ public class AdminController {
         chapter.setTitle("");
         chapter.setContent("");
         chapter.setTags("");
+        chapter.setSection("");
     }
     public void deleteChapter(int id) {
 
@@ -72,6 +77,7 @@ public class AdminController {
         newChapter.setTitle(chapter.getTitle());
         newChapter.setContent(chapter.getContent());
         newChapter.setTags(chapter.getTags());
+        newChapter.setSection(chapter.getSection());
       contentDAO.createChapter(newChapter);
 
     }

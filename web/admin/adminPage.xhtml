@@ -35,20 +35,27 @@
 
 
 
-                <h:dataTable id="chapterlist"  value ="#{adminController.findAllChapters()}" var ="ch" columnClasses="btn-group-vertical" >
+
+
+
+
+                <h:dataTable id="chapterlist"  value ="#{adminController.findSections()}" var ="section" columnClasses="btn-group-vertical" >
                     <h:column>
-                        <f:facet name="header">
-                            <h:column>
-                                <h:outputText value="Глава"/>
-                            </h:column>
-                        </f:facet>
-                        <h:commandButton styleClass="btn btn-success btn-md" style="width: 200px;"  value="#{ch.title}" action="#{adminController.findChapter(ch.id)}" >
+                        <h:outputText styleClass="btn-info disabled" style="display:block;text-align: center; width: 200px; font-size: 140%" value=" #{section} "/>
+
+                        <h:dataTable value="#{adminController.findChapters(section)}" var="chapter">
+                                <h:column>
+                        <h:commandButton styleClass="btn btn-success btn-md" style="width: 200px;"  value="#{chapter.title}" action="#{adminController.findChapter(chapter.id)}" >
                             <f:ajax execute=":form" render=":form :panel"/>
                         </h:commandButton>
                     </h:column>
                     <h:column >
-                        <h:commandButton styleClass="btn btn-danger" value="X" action="#{adminController.deleteChapter(ch.id)}" />
+                        <h:commandButton styleClass="btn btn-danger" value="X" action="#{adminController.deleteChapter(chapter.id)}" >
+                            <f:ajax execute=":form" render=":form :panel"/>
+                        </h:commandButton>
                     </h:column>
+                </h:dataTable>
+            </h:column>
                 </h:dataTable>
 
 
@@ -58,22 +65,28 @@
 
                     <f:facet name = "header">
 
-                        <h:inputText value = "#{adminController.chapter.title}"  />
-                        <h:commandButton styleClass="btn btn-success" value="Сохранить изменения" action="#{adminController.updateChapter()}" style="margin-left:10px;">
+
+                        <h:commandButton styleClass="btn btn-success" value="Сохранить изменения" action="#{adminController.updateChapter()}" style="margin-left:50px;">
                             <f:ajax execute=":form" render=":form"/>
                         </h:commandButton>
-                        <h:commandButton styleClass="btn btn-success" value="Очистить поле" action="#{adminController.clearField()}" style="margin-left:10px;">
+                        <h:commandButton styleClass="btn btn-success" value="Очистить поле" action="#{adminController.clearField()}" style="margin-left:50px;">
                             <f:ajax execute=":form" render=":form"/>
                         </h:commandButton>
-                        <h:commandButton styleClass="btn btn-success" value="Добавить как новую главу" action="#{adminController.createChapter()}" style="margin-left:10px;" >
+                        <h:commandButton styleClass="btn btn-success" value="Добавить как новую главу" action="#{adminController.createChapter()}" style="margin-left:50px;" >
                             <f:ajax execute=":form" render=":form"/>
                         </h:commandButton>
 
 
                     </f:facet>
+                    <h:panelGroup >
+                    <h:outputLabel style="padding: 20px;" value="Название раздела:"/>
+                    <h:inputText value = "#{adminController.chapter.section}"  />
+                    <h:outputLabel  style="padding: 20px;" value="Название главы:"/>
+                    <h:inputText value = "#{adminController.chapter.title}"  />
+                    </h:panelGroup>
                     <h:outputLabel value="Теги:"/>
-                    <h:inputTextarea  value="#{adminController.chapter.tags}" style="width: 100%" rows="2"/>
-                    <h:inputTextarea value = "#{adminController.chapter.content}" style="width: 100%" rows="30"  escape="true"/>
+                    <h:inputTextarea  value="#{adminController.chapter.tags}" style="width: 115%" rows="2"/>
+                    <h:inputTextarea value = "#{adminController.chapter.content}" style="width: 115%" rows="22"  escape="true"/>
 
 
 

@@ -20,6 +20,8 @@ public class Chapter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private String section;
+
     private String content;
 
     private String title;
@@ -33,7 +35,6 @@ public class Chapter {
     public void setTitle(String title) {
         this.title = title;
     }
-
 
 
     public int getId() {
@@ -58,5 +59,13 @@ public class Chapter {
 
     public void setTags(String tags) {
         this.tags = tags;
+    }
+
+    public String getSection() {
+        return section;
+    }
+
+    public void setSection(String section) {
+        this.section = section;
     }
 }
