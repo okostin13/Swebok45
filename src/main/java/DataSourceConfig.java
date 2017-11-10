@@ -8,7 +8,7 @@ import javax.inject.Singleton;
         className = "com.mysql.jdbc.jdbc2.optional.MysqlDataSource",
         name = "java:global/Swebok/swebok",
         user = "root",
-        password = "1234",
+        password = "root",
         portNumber=3306,
         serverName="localhost",
         databaseName = "swebok",

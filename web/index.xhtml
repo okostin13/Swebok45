@@ -17,6 +17,9 @@
         <ui:define name="auth">
             <h:form>
                 <h:commandButton styleClass="btn btn-success" action="authorization?faces-redirect=true" value="Авторизация">  </h:commandButton>
+                <br/>
+                <br/>
+                <h:commandButton styleClass="btn btn-success" action="metrics" value="Метрики">  </h:commandButton>
         </h:form>
         </ui:define>
 
@@ -34,11 +37,11 @@
 
             <h:dataTable id="chapterlist"   value ="#{guestController.findSections()}" var ="section"   >
                 <h:column >
-                    <h:outputText styleClass="btn-info disabled" style="display:block;text-align: center; width: 200px; font-size: 140%" value=" #{section} "/>
+                    <h:outputText styleClass="btn-info disabled" style="white-space: pre-line;display:block;text-align: center; width: 200px; font-size: 140%" value=" #{section} "/>
 
                     <h:dataTable value="#{guestController.findChapters(section)}" var="chapter" >
                         <h:column>
-                        <h:commandButton styleClass="btn btn-success " style="width: 200px;" value="#{chapter.getTitle()}" action="#{guestController.findChapter(chapter.id)}" >
+                        <h:commandButton styleClass="btn btn-success " style="white-space: pre-line;width: 200px;" value="#{chapter.getTitle()}" action="#{guestController.findChapter(chapter.id)}" >
                             <f:ajax execute=":form" render=":form :panel"/>
                         </h:commandButton>
 

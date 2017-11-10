@@ -41,11 +41,11 @@
 
                 <h:dataTable id="chapterlist"  value ="#{adminController.findSections()}" var ="section" columnClasses="btn-group-vertical" >
                     <h:column>
-                        <h:outputText styleClass="btn-info disabled" style="display:block;text-align: center; width: 200px; font-size: 140%" value=" #{section} "/>
+                        <h:outputText styleClass="btn-info disabled" style="white-space: pre-line;display:block;text-align: center; width: 200px; font-size: 140%" value=" #{section} "/>
 
                         <h:dataTable value="#{adminController.findChapters(section)}" var="chapter">
                                 <h:column>
-                        <h:commandButton styleClass="btn btn-success btn-md" style="width: 200px;"  value="#{chapter.title}" action="#{adminController.findChapter(chapter.id)}" >
+                        <h:commandButton styleClass="btn btn-success btn-md" style="width: 200px; white-space: pre-line"  value="#{chapter.title}" action="#{adminController.findChapter(chapter.id)}" >
                             <f:ajax execute=":form" render=":form :panel"/>
                         </h:commandButton>
                     </h:column>
@@ -78,12 +78,10 @@
 
 
                     </f:facet>
-                    <h:panelGroup >
-                    <h:outputLabel style="padding: 20px;" value="Название раздела:"/>
-                    <h:inputText value = "#{adminController.chapter.section}"  />
-                    <h:outputLabel  style="padding: 20px;" value="Название главы:"/>
-                    <h:inputText value = "#{adminController.chapter.title}"  />
-                    </h:panelGroup>
+                    <h:outputLabel  value="Название раздела:"/>
+                    <h:inputTextarea value = "#{adminController.chapter.section}"  style="width: 115%" rows="2" />
+                    <h:outputLabel   value="Название главы:"/>
+                    <h:inputTextarea value = "#{adminController.chapter.title}" style="width: 115%" rows="2" />
                     <h:outputLabel value="Теги:"/>
                     <h:inputTextarea  value="#{adminController.chapter.tags}" style="width: 115%" rows="2"/>
                     <h:inputTextarea value = "#{adminController.chapter.content}" style="width: 115%" rows="22"  escape="true"/>
