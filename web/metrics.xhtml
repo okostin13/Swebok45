@@ -16,9 +16,49 @@
 </h:head>
 <h:body>
 <div class="container bg-1">
-
-gf
-fg
+    <h1  align="center">Метрики</h1>
+    <h4>Lines of Code</h4>
+    Source Lines java = 421 <br/>
+    Source Lines xml = 151 <br/>
+    Source Lines xhtml = 503<br/>
+    <h4>Size and count of extensions</h4>
+    Count java = 12<br/>
+    Count xhtml = 10<br/>
+    Count xml = 10<br/>
+    Size java = 15kB<br/>
+    Size xhtml = 21kB<br/>
+    Size xml = 7kB<br/>
+    <h4>MOOD</h4>
+    ahf(attribute hiding factor) = 68 - кол-во скрытых аттрибутов <br/>
+    aif(attribute inheritance factor) = 0 - соотношене унаследованных атрибутов в классе к общему числу атрибутов<br/>
+    cf(coupling factor)= 16.67 - отношение связанных классов к максимально возможному числу связей<br/>
+    mhf (method hiding factor) = 0 - кол-во скрытых методов<br/>
+    mif(method inheritance factor) = 0  - соотношене унаследованных методов в классе к общему числу методов<br/>
+    pf(polymorphism factor) = 100 - отношение перекрытых методов к общему числу методов в наследниках<br/>
+    <h4>Martin Packaging Metrics</h4>
+    a(abstractness) = 0 - отношение абстрактных классов к общему кол-ву классов<br/>
+    ca(afferent coupling) = 7 - чувствительность подключаемых классов к изменению классов в проекте<br/>
+    ce(efferent coupling)= 6 - кол-во классов в проекте , которые зависят от классов из сторонних пакетов<br/>
+    d(normalized distance from main sequence) = 0.54 - баланс между стабильностью и абстрактностью<br/>
+    i(instability) = 0.46  - восприимчивость класса к изменениям в зависимостях<br/>
+    <h4>McCabe Metrics</h4>
+    <b>Module Design Complexity Metric (iv(G))</b><br/>
+    Сложность модуля-составной части и отношение сложности используемых модулем шаблонов к непосредственно подчиненным модулям<br/>
+    Total = 72<br/>
+    Average = 1.2<br/>
+    <b>Cyclomatic Complexity Metric (v(G))</b> <br/>
+    Мера сложности определяющей структуры модуля. Это число линейно независимых путей.<br/>
+    Total = 77<br/>
+    Average = 1.28<br/>
+    <b>Essential Complexity Metric (ev(G))</b> <br/>
+    Мера степени содержания неструктурированных конструкций в модуле<br/>
+    Total = 62<br/>
+    Average = 1.03<br/>
+    <h:form>
+        <br/>
+    <h:commandButton  action="index?faces-redirect=true" styleClass="btn btn-success" value="На главную"/>
+    </h:form>
+<br/>
 </div>
 </h:body>
 </html>
